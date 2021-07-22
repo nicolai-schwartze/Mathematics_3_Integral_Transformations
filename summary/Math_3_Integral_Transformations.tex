@@ -1,0 +1,122 @@
+%
+% 1: documentation, e.g.: a documentation for a project done in a course
+% 2: thesis, e.g.: a master thesis
+% 3: summary
+% 5: presentation
+% 9: paper
+%
+\ifx\FHVmode\undefined
+	\def\FHVmode{3}
+\fi
+%
+% 1: Presentation only
+% 2: Presentation only notes
+% 3: Presentation all (left page is the presentation, right the notes)
+%
+\ifx\PresentationMode\undefined
+	\def\PresentationMode{3}
+\fi
+%
+\newcommand{\version}{v0.0}
+%
+\input{./sty/overallDefines.sty}
+%
+\documentclass[\documentclassOptions]{\komaScriptClass}
+%
+\usepackage{./sty/fhv}
+%
+\makeglossaries
+%
+% General settings for title...
+%
+\setLanguage{\newLanguage}
+\setTitle{Mathematics 2: Ordinary Differential Equations}
+\setAuthor{\authorSurname\authorName}
+\setStudyprogram{Bachelors's in Mechatronics}
+\setSupervisor{\supervisorSurname\supervisorName}
+\setSupervisorCompany{ }
+\setSubtitle{Summary}
+\setSubject{Mathematics 2}
+\setDegree{ }
+\setCompany{ }
+%
+% PDF settings
+%
+\pdfSettings
+%
+\allowdisplaybreaks
+%
+\begin{document}
+	%
+	% Select the language defined in \newLanguage
+	%
+	\ifx\newLanguage\ngerman
+		\selectlanguage{ngerman}
+	\else
+		\selectlanguage{english}
+	\fi %
+	%
+	\if\FHVmode\paper
+		\SetAlgorithmName{Algorithmus}{Alg.}
+	\makeatletter
+		\crefname{equation}{Gl.}{Gln.}
+	\makeatother
+	\fi
+	% Import the acronyms
+	%
+	\input{./util/Acronym.tex} % provide the defined acronyms to be used
+	%
+	% for Backlinks to work properly
+	%
+	\begin{envModeNot}[\presentations]
+		%
+		% for Backlinks to work properly
+		%
+		\let\hypercontentsline=\contentsline
+		\renewcommand{\contentsline}[4]{\hypertarget{toc.#4}{}\hypercontentsline{#1}{#2}{#3}{#4}}%
+		%
+		\sisetup{output-decimal-marker = {,}}
+		\pagenumbering{gobble} % used to prevent the page numbering
+		%
+		\begin{envDebug}
+			\layout
+			\textrm{Serif: \rmdefault}\par
+			\textsf{Sans-Serif: \sfdefault}\par
+			\texttt{Teletype: \ttdefault}
+		\end{envDebug}
+		%
+		\begin{envModeNot}[\paper]
+		%
+		% evtl. Sperrvermerkseite
+		% nur in begründeten Ausnahmefällen verwenden
+		% Aufgrund gesetzlicher Bestimmungen ist eine Sperre maximal für fünf Jahre möglich
+		%
+		%
+		\end{envModeNot}
+		%
+		\maketitle % creates the title page
+		\hypersetup{pageanchor=true}
+		%
+		\begin{envModeNot}[\paper]
+		%
+		\pagenumbering{Roman} 
+		%
+		\newpage
+		%
+		\fhvlists
+		\end{envModeNot}
+		%
+		% INSERT your .tex files
+		%
+		\subfile{./tex/ODE_n_1.tex}
+		
+		\subfile{./tex/ODE_n_2.tex}
+		
+		\subfile{./tex/ODE_n_n.tex}
+		%\subfile{./tex/xxx.tex}
+		%
+		% END INSERT
+		%
+	\end{envModeNot}
+	%
+\end{document}

@@ -1,0 +1,78 @@
+\documentclass[./\jobname.tex]{subfiles}
+\begin{document}
+
+\chapter{Ordinary Differential Equation of 1\textsuperscript{st} Order}
+Ordinary Differential Equations (or short ODEs) are equations where a derivative of one variable is present. The order of an ODE is defined by the largest derivative in the equation.
+
+\section{Seperable ODE}
+\label{ch:seperable_ode}
+These are equations of the form 
+\begin{equation}
+y' = f(x)g(y)
+\end{equation}
+
+The functions $f(x)$ and $g(y)$ can be seperated in a way that all y are on one side and all x are on the other side. It is benificial to leave negative signs on the right side. 
+
+\begin{enumerate}
+	\item bring $f(x)$ and $g(y)$ to each side: $y'\frac{1}{g(y)} = f(x)$
+	\item rewrite differential expression: $\frac{dy}{dx} \frac{1}{g(y)} = f(x)$
+	\item integrate both sides $\int \frac{1}{g(y)} dy = \int f(x) dx$
+	\item if necessary, bring y on one side: $y(x) = ...$
+\end{enumerate}
+
+\section{Euler-Homogeneous ODE}
+This equations look like 
+\begin{equation}
+y' = g\left(\frac{y}{x}\right)
+\end{equation}
+
+By using an appropriate substitution, the Euler-Homogeneous ODE can be transformed into a seperable ODE and than solved accordingly. The challenge is to find the right substitution. This largely depends on the right hand side of the equation. Some important substitutions are: 
+
+
+\begin{table}[H]
+	\centering
+	\noindent\adjustbox{max width=\linewidth}{
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\rowcolor[HTML]{\farbeTabA}
+			form & $y' = g\left(\frac{x}{y}\right)$ & $y' = g(x + y)$\\ \hline
+			substitution & $u = \frac{x}{y}$ & $u = x + y$	\\ \hline
+			derivative & $y' = u' x - u$ & $y' = u' - 1$ \\ \hline
+			example & $y' = \frac{1}{2}\left( \frac{y}{x} - \frac{x}{y}\right)$ & $y' = sin(x + y)$ \\ \hline
+		\end{tabular}
+	}
+\end{table}
+
+
+In general, the process of solving this type of equation is
+\begin{enumerate}
+	\item find substitution $u = ...$
+	\item calculate the derivative $y' = ...$
+	\item insert into the original equation
+	\item solve the now seperable ODE
+	\item resubstitute $y = ...$
+\end{enumerate}
+
+\section{Linear ODE of 1\textsubscript{st} Order}
+These are equations of the form 
+\begin{equation}
+	y' + p(x)y = r(x)
+\end{equation}
+
+Here, $p(x)$ and $r(x)$ can be an arbitrary function of $x$. In the special case where $r(x) = 0$, the ODE is seperable and can be solved according to chapter \ref{ch:seperable_ode}
+
+\section{Bernoulli ODE}
+
+\section{Transformation to New Coordinate System}
+
+\section{Transformation to Polar Coordinates}
+
+\section{Exact ODE and Total Differential}
+
+\section{Excursion: Constructing Trajectories}
+
+\subsection{Orthogonal Trajectories}
+
+\subsection{Isogonal Trajectories}
+
+\end{document}
