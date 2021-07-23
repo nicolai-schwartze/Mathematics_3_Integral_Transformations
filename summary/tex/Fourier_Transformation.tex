@@ -1,0 +1,73 @@
+\documentclass[./\jobname.tex]{subfiles}
+\begin{document}
+
+\chapter{Fourier Transformation}
+
+The Fourier Transformation is a method to decompose a continuous, aperiodic signal into a continuous spectrum. This integral transformation is defined by
+
+\begin{equation}
+	\mathcal{F}(f(t)) = \int_{-\infty}^{\infty} f(t) \cdot e^{-i\omega t} dt = F(\omega) 
+\end{equation}
+
+\begin{equation}
+	\mathcal{F}^{-1}(f(t)) = \frac{1}{2 \pi} \int_{-\infty}^{\infty} F(\omega) \cdot e^{i\omega t} dt = f(t) 
+\end{equation}
+
+In the general case, $\mathcal{F}(f(t)) = F(\omega)$ is a complex function with a real and an imaginary part:
+
+\begin{equation}
+	\begin{split}
+	F(\omega) = & F_1(\omega) + i F_2(\omega) \\
+	& where:\\
+	& F_1(\omega) ... \Re(F(\omega)) \\
+	& F_2(\omega) ... \Im(F(\omega)) \\
+	\end{split}
+\end{equation}
+
+The Fourier Transform $F(\omega)$ is Hermitian that the conjugate complex $\overline{F}(\omega)$ of a Fourier Transform is equal to the Fourier Transform at the negative frequency $F(-\omega)$.
+
+\begin{equation}
+	\overline{F}(\omega) = F(-\omega)
+\end{equation}
+
+The Fourier Transformation exhibits some very useful properties that can be exploited for calculations. 
+
+\section{Linearity}
+The Fourier Transformation is a linear operation which means that
+
+\begin{equation}
+	\mathcal{F}(a \cdot f(t) \pm b \cdot g(t)) = a \cdot \mathcal{F}(t) \pm b \cdot \mathcal{F}(g(t))
+\end{equation}
+
+\section{Differentiation}
+If the original function $f(t)$ converges to $0$: $f(t) \rightarrow 0 \text{ for } t \rightarrow \pm \infty$, than the Fourier Transformation of the differentiation $\mathcal{F}(f'(t))$ can be expressd as 
+
+\begin{equation}
+	\mathcal{F}(f'(t)) = i \omega \mathcal{F}(f(t)) \text{ only if: } f(t) \rightarrow 0 \text{ for } t \rightarrow \pm \infty
+\end{equation}
+
+
+\section{Time Shifting}
+If a function $f(t)$ is shifted in the time domain about a constant $f(t-a)$ the Fourier Transformation of the shifted function can be calculated by
+
+\begin{equation}
+	\mathcal{F}(f(t - a)) = e^{-i\omega a} \cdot \mathcal{F}(f(t))
+\end{equation}
+
+\section{Convolution}
+
+The convolution of two functions $f(t)$ and $g(t)$ is defined as 
+
+\begin{equation}
+	f(t) \ast g(t) = \int_{\tau = - \infty}^{\infty} f(\tau) \cdot g(t-\tau) d\tau
+\end{equation}
+
+The Fourier Transformation of the convolution of two functions can also be calculated by 
+
+\begin{equation}
+	\mathcal{F}(f(t) \ast g(t)) = \mathcal{F}(f(t)) \cdot \mathcal{F}(g(t))
+\end{equation}
+
+
+
+\end{document}
