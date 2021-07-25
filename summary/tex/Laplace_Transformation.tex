@@ -4,5 +4,49 @@
 \chapter{Laplace Transformation}
 
 
+\begin{table}[H]
+	\centering
+	\noindent\adjustbox{max width=\linewidth}{
+		\begin{tabular}{|c|c|}
+			\hline
+			\rowcolor[HTML]{\farbeTabA}
+			Function $f(t)$ & Transformation $F(s)$  \\ \hline
+			$1$ & $\frac{1}{s}$  \\ \hline
+			$t$ & $\frac{1}{s^2}$  \\ \hline
+			$t^n, \text{ } n \in \mathbb{N}$ & $\frac{n!}{s^{n+1}}$  \\ \hline
+			$e^{\pm at}$ & $\frac{1}{s \mp a}$  \\ \hline
+			$t \cdot e^{\pm at}$ & $\frac{1}{(s \mp a)^2}$  \\ \hline
+			$t^n \cdot e^{\pm at}$ & $\frac{n!}{(s \mp a)^{n + 1}}$  \\ \hline
+			$u(t -a)$ & $\frac{1}{s} e^{-as}$  \\ \hline
+			$f(t-a) \cdot u(t -a)$ & $\mathcal{L}(f(t)) \cdot e^{-as}$  \\ \hline
+			$\delta(t -a)$ & $e^{-as}$  \\ \hline
+			$\sqrt{t}$ & $\frac{1}{2s} \sqrt{\frac{\pi}{s}}$  \\ \hline
+			$\frac{1}{\sqrt{t}}$ & $\sqrt{\frac{\pi}{s}}$  \\ \hline
+			$\sqrt{t} \cdot e^{at}$ & $\frac{\sqrt{\pi}}{2(s -a)\sqrt{s - a}}$  \\ \hline
+			$\frac{1}{\sqrt{t}} \cdot e^{at}$ & $\frac{\sqrt{\pi}}{\sqrt{s - a}}$ \\ \hline
+			$sin(\omega t)$ & $\frac{\omega}{s^2 + \omega^2}$ \\ \hline
+			$cos(\omega t)$ & $\frac{s}{s^2 + \omega^2}$ \\ \hline
+			$t \cdot sin(\omega t)$ & $\frac{2 \omega s}{(s^2 + \omega^2)^2}$ \\ \hline
+			$t \cdot cos(\omega t)$ & $\frac{s^2 - \omega^2}{(s^2 + \omega^2)^2}$ \\ \hline
+			$t^n \cdot sin(\omega t), \text{ } n \in \mathbb{N}$ & $\frac{i \cdot n!}{2} \left( \frac{1}{(s + i \omega)^{n + 1}} - \frac{1}{(s - i \omega)^{n + 1}}\right)$ \\ \hline
+			$t^n \cdot cos(\omega t), \text{ } n \in \mathbb{N}$ & $\frac{n!}{2} \left( \frac{1}{(s + i \omega)^{n + 1}} + \frac{1}{(s - i \omega)^{n + 1}}\right)$ \\ \hline
+			$sinh(\omega t)$ & $\frac{\omega}{s^2 - \omega^2}$ \\ \hline
+			$cosh(\omega t)$ & $\frac{s}{s^2 - \omega^2}$ \\ \hline
+			$t \cdot sinh(\omega t)$ & $\frac{2 \omega s}{(s^2 - \omega^2)^2}$ \\ \hline
+			$t \cdot cosh(\omega t)$ & $\frac{s^2 + \omega^2}{(s^2 - \omega^2)^2}$ \\ \hline
+			$t^n \cdot sinh(\omega t), \text{ } n \in \mathbb{N}$ & $ \frac{n!}{2} \left( \frac{1}{(s - \omega)^{n + 1}} - \frac{1}{(s + \omega)^{n+1}} \right)$ \\ \hline
+			$t^n \cdot cosh(\omega t), \text{ } n \in \mathbb{N}$ & $ \frac{n!}{2} \left( \frac{1}{(s - \omega)^{n + 1}} + \frac{1}{(s + \omega)^{n+1}} \right)$ \\ \hline
+			$e^{at} sin(\omega t)$ & $\frac{\omega}{(s - a)^2 + \omega^2}$ \\ \hline
+			$e^{at} cos(\omega t)$ & $\frac{s - a}{(s - a)^2 + \omega^2}$ \\ \hline
+			$e^{at} sinh(\omega t)$ & $\frac{\omega}{(s - a)^2 - \omega^2}$ \\ \hline
+			$e^{at} cosh(\omega t)$ & $\frac{s - a}{(s - a)^2 - \omega^2}$ \\ \hline
+			$sin(\omega t)^2$ & $\frac{2 \omega^2}{s(s^2 + 4\omega^2)}$ \\ \hline
+			$cos(\omega t)^2$ & $\frac{s^2 + 2\omega^2}{s(s^2 + 4\omega^2)}$ \\ \hline
+			$sinh(\omega t)^2$ & $\frac{2 \omega^2}{s(s^2 - 4\omega^2)}$ \\ \hline
+			$cosh(\omega t)^2$ & $\frac{s^2 - 2\omega^2}{s(s^2 - 4\omega^2)}$ \\ \hline
+		\end{tabular}
+	}
+\end{table}
+
 
 \end{document}
