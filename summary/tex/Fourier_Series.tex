@@ -5,4 +5,61 @@
 
 The Fourier Series is a special serious expansion for periodic, piecewise continuous functions into a function series of sine and cosine.
 
+In the case of the complex fourier series, the trigonometric functions are further decomposed into complex Euler exponential functions. 
+
+\section{Real Fourier Series}
+The real Fourier Series can be expressed by 3 parameters which are called the Euler-Fourier Parameter $a_0$, $a_n$ and $b_n$. Depending on the symmetry of the original function $f(t)$, the calculation process can be shortened. The base frequency for all components is denoted as $\omega_0 = \frac{2\pi}{T}$. 
+
+\begin{table}[H]
+	\centering
+	\noindent\adjustbox{max width=\linewidth}{
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\rowcolor[HTML]{\farbeTabA}
+			Even Symmetric Function & Odd Symmetric Functions & Arbitrary Function \\ \hline
+			$f(t) = f(-t)$ & $f(t) = -f(-t)$ & no symmetry  \\ \hline
+			$\int_{-a}^{a} f(t) dt = 2 \int_{0}^{a} f(t) dt$ & $\int_{-a}^{a} f(t) dt = 0$ & no symmetry \\ \hline
+			$f(t) = a_0 + \sum_{n=1}^{\infty}  a_n \cdot cos  \left( n \omega_0 t \right)$ & $f(t) = \sum_{n=1}^{\infty}  b_n \cdot sin(n \omega_0 t)$ & $f(t) = a_0 + \sum_{n=1}^{\infty}  a_n \cdot cos  \left( n \omega_0 t \right) + b_n \cdot sin\left( n \omega_0 t\right)$ \\ \hline
+			$a_0 = \frac{2}{T} \int_{0}^{\frac{T}{2}} f(t) dt$ & $a_0 = 0$ & $a_0 = \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} f(t) dt$ \\ \hline
+			$a_n = \frac{4}{T} \int_{0}^{\frac{T}{2}} f(t) \cdot cos(n \omega_0 t) dt$ & $a_n = 0$ & $a_n = \frac{2}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} f(t) \cdot cos(n \omega_0 t) dt$ \\ \hline
+			$b_n = 0$ & $b_n = \frac{4}{T} \int_{0}^{\frac{T}{2}} f(t) sin(n \omega_0 t) dt$ & $b_n = \frac{2}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} f(t) \cdot sin(n \omega_0 t) dt$ \\ \hline
+		\end{tabular}
+	}
+\end{table}
+
+
+\section{Complex Fourier Series}
+As $sine$ and $cosine$ can be expressed by complex Euler-Functions. These pointers can be added together where each pointer has its own amplitude $c_n$ called Fourier Coefficient. Again the frequency is denoted as $\omega_0 = \frac{2 \pi}{T}$. 
+
+
+\begin{equation}
+	\begin{split}
+		& f(t) = f(t + n \cdot T) \text{    $n \in \mathbb{Z}$} \\
+		& \text{ with } \omega_0 = \frac{2 \pi}{T} \\
+		& f(t) = \sum_{n = -\infty}^{\infty} c_n \cdot e^{in\omega_0 t} \\
+	\end{split}
+\end{equation}
+
+
+\begin{equation}
+	c_n = \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} f(t) \cdot e^{- i n \omega_0 t}
+\end{equation}
+
+
+\begin{table}[H]
+	\centering
+	\noindent\adjustbox{max width=\linewidth}{
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\rowcolor[HTML]{\farbeTabA}
+			Even Symmetric Function & Odd Symmetric Functions & No Symmetry \\ \hline
+			$f(t) = f(-t)$ & $f(t) = -f(-t)$ & no symmetry  \\ \hline
+			$c_n = c_{-n}$ & $c_n = -c_{-n}$ & $c_n$ \\ \hline
+			only real part $c_n$ & only imaginary $c_n$ & fully complex $c_n$ \\ \hline
+		\end{tabular}
+	}
+\end{table}
+
+
+
 \end{document}
