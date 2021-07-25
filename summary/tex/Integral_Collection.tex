@@ -1,0 +1,135 @@
+\documentclass[./\jobname.tex]{subfiles}
+\begin{document}
+
+\chapter{Collection of Integrals}
+
+\begin{equation*}
+	\int \frac{sin(x)^2}{cos(x)} dx = \int \frac{1 - cos(x)^2}{cos(x)} dx = \int \frac{1}{cos(x)} dx - sin(x)
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+\int \frac{1}{cos(x)} dx = \int \frac{cos(x)}{cos(x)^2} dx = \int \frac{cos(x)}{1 - sin(x)^2} dx = arctanh(sin(x))
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+\int \frac{1}{sin(x)} dx = \int \frac{sin(x)}{sin(x)^2} dx = \int \frac{sin(x)}{1 - cos(x)^2} dx = -arctanh(cos(x))
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+	\int tan(x) dx = -ln(cos(x))
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+	\int cot(x) dx = ln(sin(x))
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+	\begin{split}
+	\int \frac{1-x \cdot arctan(x)}{arctan(x) \cdot (1 + x^2)} = & \int \left( \frac{1}{arctan(x) \cdot (1 + x^2)} - \frac{x \cdot arctan(x)}{arctan(x) \cdot (1 + x^2)} \right) dx \\
+	& \xrightarrow{z = arctan(x)} \int \left( \frac{1}{z} - tan(z) \right) dz = ln(z) + ln(cos(z))
+	\end{split}
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+	\int \frac{1}{x^2 \cdot \sqrt{1 - x^2}} dx \xrightarrow{x = sin(u)} \int \frac{cos(u)}{sin(u)^2 \cdot cos(u)} du = \int \frac{1}{sin(x)^2} du = -cot(u)
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+	\int \frac{x^2}{\sqrt{1 - x^2}} dx = \int x \cdot \frac{x}{\sqrt{1 - x^2}} dx = -x \sqrt{1 - x^2} + \int \sqrt{1 - x^2} dx
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+	\int sin(x)^3 \cdot e^{-cos(x)} dx \xrightarrow{u = -cos(x)} \int sin(x)^3 \cdot \frac{e^u}{sin(x)} du = \int \left( 1 - u^2 \right) \cdot e^u du
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+	\int\frac{1}{\sqrt{\frac{a}{x} -1}} dx = \int \frac{1}{\sqrt{\frac{a -x}{x}}} dx = \int \frac{\sqrt{x}}{\sqrt{a -x}} \xrightarrow{x = a \cdot sin(u)^2} \int \frac{\sqrt{a} \cdot sin(u) \cdot 2 \cdot a \cdot sin(u) \cdot cos(u)}{\sqrt{a - a \cdot sin(u)^2}} du = 2 \cdot a \int sin(u)^2 du
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+	\begin{split}
+	& \int \frac{1}{x \cdot \sqrt{a^2 x^2 - 1}} dx \xrightarrow{ax = cosh(u)} \\
+	& \int \frac{1}{a} \cdot \frac{sinh(u)}{\frac{cosh(u)}{a} \sqrt{cosh(u)^2 -1}} du = \int \frac{1}{cosh(u)} du = \int \frac{cosh(u)}{1 + sinh(u)^2} du = arctan(sinh(u)) \\
+	\end{split}
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+	\int 2 \cdot x \cdot e^{x^2} dx = e^{x^2}
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+\int \frac{1}{\sqrt{x^2 \cdot a + x^2 \cdot ln(x)^2}} dx \xrightarrow{u = ln(x)} \int \frac{1}{\sqrt{a + u^2}} du = \int \frac{1}{\sqrt{a} \cdot \sqrt{1 + \frac{u^2}{a}}} du = arcsinh \left( \frac{u}{\sqrt{a}} \right)
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+	\int \frac{sin(x)}{cos(x)^3} dx = \int tan(x) \cdot \frac{1}{cos(x)^2} dx = \frac{tan(x)^2}{2}
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+	\int \left( \frac{1}{x} e^x - \frac{1}{x^2} e^x \right) dx = \frac{1}{x} e^x - \int -x \frac{1}{x^2} e^x dx - \int \frac{1}{x^2} e^x dx = \frac{1}{x} e^x
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+	\int \frac{2}{4x + a + \sqrt{a^2 + 4ax}} dx \xrightarrow{u = \sqrt{4ax + a^2}} \int \frac{u}{a(4x + a + u)} du = \int \frac{u}{4 ax + a^2 + au} du = \int \frac{u}{u^2 + au} du = ln(u + a)
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*} 
+\int \frac{1 - sin(x)}{1 + sin(x)} dx = \int \frac{1 - sin(x)}{1 + sin(x)} \cdot \frac{1 - sin(x)}{1 - sin(x)} dx = \int \frac{1 - 2 sin(x) + sin(x)^2}{1 - sin(x)^2} dx = 2 \cdot tan(x) - \frac{2}{cos(x)} - x
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+	\begin{split}
+	& \int \frac{1}{cos(x)^3} dx = \int \frac{1}{cos(x)} \frac{1}{cos(x)^2} dx = \frac{tan(x)}{cos(x)} - \int \frac{sin(x) \cdot tan(x)}{cos(x)^2} dx = \\ 
+	& \frac{sin(x)}{cos(x)^2} - \int \frac{1}{cos(x)^3} dx + \int \frac{cos(x)}{cos(x)^2} dx = \frac{1}{2} \left( \frac{sin(x)}{cos(x)^2} + arctanh(sin(x)) \right) \\
+	\end{split}
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+	\int e^{ax} \cdot cos(bx) dx = \frac{a}{a^2 + b^2} e^{ax} cos(bx) + \frac{b}{a^2 + b^2} e^{ax} sin(bx)
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+\int e^{ax} \cdot sin(bx) dx = \frac{a}{a^2 + b^2} e^{ax} sin(bx) - \frac{b}{a^2 + b^2} e^{ax} cos(bx)
+\end{equation*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\end{document}
