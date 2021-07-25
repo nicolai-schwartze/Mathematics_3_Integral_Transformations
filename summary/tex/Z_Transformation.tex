@@ -4,4 +4,36 @@
 \chapter{Z-Transformation}
 
 
+\section{Collection of Common Z-Transformation}
+
+\begin{table}[H]
+	\centering
+	\noindent\adjustbox{max width=\linewidth}{
+		\begin{tabular}{|c|c|}
+			\hline
+			\rowcolor[HTML]{\farbeTabA}
+			Series $f[n]$ & Z-Transformation $F(z)$ \\ \hline
+			$1 \text{ or } u[n]$ & $\frac{z}{z-1}$ \\ \hline
+			$\delta[n]$ & $1$ \\ \hline
+			$\delta[n-1]$ & $\frac{1}{z}$ \\ \hline
+			$\delta[n-2]$ & $\frac{1}{z^2}$ \\ \hline
+			$\delta[n-k]$ & $\frac{1}{z^k}$ \\ \hline
+			$a^n$ & $\frac{z}{z - a}$ \\ \hline
+			$e^n$ & $\frac{z}{z - e}$ \\ \hline
+			$(-a)^n$ & $\frac{z}{z + a}$ \\ \hline
+			$sin[a \cdot n]$ & $\frac{z \cdot sin(a)}{z^2 - 2 z \cdot cos(a) + 1}$ \\ \hline
+			$cos[a \cdot n]$ & $\frac{z^2 - z \cdot cos(a)}{z^2 - 2 z \cdot cos(a) + 1}$ \\ \hline
+			$n$ & $\frac{z}{(z - 1)^2}$ \\ \hline
+			$n^2$ & $\frac{z \cdot (z + 1)}{(z - 1)^3}$ \\ \hline
+			$n^3$ & $\frac{z \cdot (z^2 + 4z + 1)}{(z - 1)^4}$ \\ \hline
+			$n^4$ & $\frac{z \cdot (z^3 + 11z^2 + 11z + 1)}{(z - 1)^5}$ \\ \hline
+			$sinh[a \cdot n]$ & $\frac{z \cdot sinh(a)}{z^2 - 2 z \cdot cosh(a) + 1}$ \\ \hline
+			$cosh[a \cdot n]$ & $\frac{z^2 -z \cdot cosh(a)}{z^2 - 2 z \cdot cosh(a) + 1}$ \\ \hline
+			$sin\left[\frac{\pi}{2} \cdot n\right]$ & $\frac{z}{z^2 + 1}$ \\ \hline
+			$cos\left[\frac{\pi}{2} \cdot n\right]$ & $\frac{z^2}{z^2 + 1}$ \\ \hline
+		\end{tabular}
+	}
+\end{table}
+
+
 \end{document}
