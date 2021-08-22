@@ -7,8 +7,24 @@ The Laplace transformation can be used to solve differential equations. For that
 The notation is 
 
 \begin{equation}
-	\laplace
+	f(t) \text{ } \laplace \text{ } \mathcal{L}(f(t)) = F(s)
 \end{equation}
+
+\section{Laplace Integral}
+The Laplace transformation is defined as 
+\begin{equation}
+	\mathcal{L} \left( f(t) \right) = \int_{0}^{\infty} f(t) \cdot e^{-st} dt
+\end{equation}
+
+where $s$ is a complex number $s = \delta + i \omega$. This transformation only works on functions $f(t)$ that do not grow faster than $e^t$. There are many standard transforamtions as seen in the following table. 
+
+\section{Inverse Laplace Transformation}
+The inverse Laplace transformation brings the function brack from the s-domain into the time domain. This is noted like 
+\begin{equation}
+	\mathcal{L}^{-1} \left(F(s)\right) = f(t)
+\end{equation}
+
+In most cases the inverse transformation can be done by a partial fraction decomposition. Therefore, the function $f(s)$ is written as a sum of fractions, where each fraction can be separately transformed. 
 
 \begin{table}[H]
 	\centering
@@ -53,6 +69,187 @@ The notation is
 		\end{tabular}
 	}
 \end{table}
+
+\section{Properties}
+
+The Laplace transformation has some helpfule properties, that can be leveraged to solve a problem. 
+
+\subsection{Linearity}
+
+The Laplace transformation is a linear operation. Therefore, the linearity condition holds. The summation of multiple functions can be split and transformed seperatly. 
+
+\begin{equation}
+	\mathcal{L} \left(a \cdot f(t) \pm b \cdot g(t)\right) = a \mathcal{L} \left( f(t) \right) \pm b \mathcal{L} \left( g(t) \right)
+\end{equation}
+
+\subsection{Derivative}
+\label{chap:derivative}
+
+Differentiating a function in the time domain corresponds to a multiplication with $s$ in the s-domain. 
+
+\begin{equation}
+	\begin{split}
+		& \mathcal{L} \left( f'(t) \right) = s \cdot \mathcal{L} \left( f(t) \right) - f(0) \\
+		& \mathcal{L} \left( f''(t) \right) =  s^2 \cdot \mathcal{L} \left( f(t) \right) - s \cdot f(0) - f'(0) \\
+		& \mathcal{L} \left( f^{(n)}(t) \right) = s^n F(s) - \sum_{k=1}^{n} s^{n-k} f^{(k-1)}(0)
+	\end{split}
+\end{equation}
+
+\subsection{Integration}
+
+Similary, the integration in of the function in the time domain corresponds with a multiplication of $\frac{1}{s}$ in the s-domain. This relation is especially helpfule for inverse Laplace transformations.
+
+\begin{equation}
+	\mathcal{L}\left( \int_{\tau=0}^{t} f(\tau) d\tau \right) = \frac{1}{s} \mathcal{L} \left( f(t) \right)
+\end{equation}
+
+The diagram below visualizes the correspondence in a different way. 
+
+\begin{figure}[H]
+	\centering
+	\noindent\adjustbox{max width=\linewidth}{
+		\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+		
+		\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+		%uncomment if require: \path (0,171); %set diagram left start at 0, and has height of 171
+		
+		
+		% Text Node
+		\draw (213,31) node    {$f( t)$};
+		% Text Node
+		\draw (213,131) node    {$g( t)$};
+		% Text Node
+		\draw (457,31) node    {$F( s)$};
+		% Text Node
+		\draw (457,131) node    {$G( s)$};
+		% Text Node
+		\draw (467,58.4) node [anchor=north west][inner sep=0.75pt]    {$\frac{1}{s}$};
+		% Text Node
+		\draw (314,9.4) node [anchor=north west][inner sep=0.75pt]    {$\mathcal{L}( ...)$};
+		% Text Node
+		\draw (316,137.4) node [anchor=north west][inner sep=0.75pt]    {$\mathcal{L}( ...)$};
+		% Text Node
+		\draw (165,56.4) node [anchor=north west][inner sep=0.75pt]    {$\int dt$};
+		% Connection
+		\draw    (230,31) -- (437.5,31) ;
+		\draw [shift={(439.5,31)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+		% Connection
+		\draw    (213,43) -- (213,117) ;
+		\draw [shift={(213,119)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+		% Connection
+		\draw    (229.5,131) -- (436,131) ;
+		\draw [shift={(438,131)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+		% Connection
+		\draw    (457,43) -- (457,117) ;
+		\draw [shift={(457,119)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+		
+		\end{tikzpicture}
+	}
+\end{figure}
+    
+
+\subsection{Frequency - Shift}
+
+If the function $f(t)$ is multiplied with an exponential function in the time domain, than the exponent $a$ must be subtracted or added in the transformation. The addition or subtraction must be applied to every s in the s-domain. Thus, the function gets shifted in the s-domain which is also the reason for the name of this porperty.
+
+\begin{equation}
+	\mathcal{L} \left(f(t) \cdot e^{\pm at}\right) \rightarrow F(s \mp a)
+\end{equation} 
+
+
+\subsection{Time - Shift}
+
+A function can also be shifted in the time domain. One way of shifting a function is to multiply it with the Heaviside function. Strictly speaking, the Heaviside ``distribution'' is not a function. 
+
+\subsubsection{Heaviside Function}
+
+The hHeaviside distrubution is defined as: 
+
+\begin{equation}
+	u(t-a) = 
+	\begin{cases}
+	0 & \text{ for } t < a \\
+	1 & \text{ for } t \geq a
+	\end{cases}
+\end{equation}
+
+The Heaviside function is $0$ for every all time before $t < a$ and $1$ for all time beyond $t \geq a$. 
+
+When a function $f(t)$ is multiplied with the Heaviside function $u(t-a)$, the result $g(t)$ is restricted to the time $t \geq a$. For $t < a$, $g(t) = 0$ and for $t \geq a$, $g(t) = f(t)$. 
+
+A function, that is multiplied with the Heaviside function, can be Laplace transformed in the following way:
+
+\begin{equation}
+\begin{split}
+\mathcal{L}\left( u(t-a) \right) & = \frac{e^{-a}}{s} \\
+\mathcal{L}\left( f(t-a) \cdot u(t-a) \right) & = \mathcal{L}\left( f(t) \right) \cdot e^{-as} \\
+\mathcal{L}^{-1}\left( F(s) \cdot e^{-as} \right) & = f(t-a) \cdot u(t-a)
+\end{split}
+\end{equation}
+
+\subsubsection{Dirac's Deltafunction}
+
+The Dirac's delta function can be thought of as an infinitly high needle at only one distinct place. It is defined as: 
+
+\begin{equation}
+	\delta (t-a) = 
+	\begin{cases}
+	\infty & \text{ for } t = a \\
+	0 & \text{ for } t \neq a
+	\end{cases}
+\end{equation}
+
+The Dirac delta impulse is the derivative of the Heaviside function, which is especially helpfule when using the derivative property from \ref{chap:derivative}. 
+
+\subsection{Convolution}
+
+The convolution of two functions $f(t)$ and $g(t)$ is often denominated by the $*$ operator. The convolution is defined as:
+
+\begin{equation}
+	f(t)*g(t) = \int_{\tau = 0}^{t} f(\tau) \cdot g(t-\tau) d\tau
+\end{equation}
+
+The special property of the convolution is that the Laplace transformation of two convoluted functions in the time domain is equivalent to the muliplication in the s-domain. 
+
+\begin{equation}
+	\mathcal{L} \left( f(t) * g(t) \right) = \mathcal{L} \left( f(t) \right) \cdot \left( g(t) \right)
+\end{equation}
+
+\begin{equation}
+	\mathcal{L}^{-1} \left( F(s) \cdot G(s) \right) = \mathcal{L}^{-1}( F(s)) * \mathcal{L}^{-1} (G(s))
+\end{equation}
+
+\subsection{Initial Value Theorem}
+
+With the initial value theorem one can very quickly evaluate the function at $t=0$. For this purpose, the limit of the function multiplied with $s$ is taken in the s-domain. For fractions it might be helpfule to apply the limit rule of de l'Hospital. 
+
+\begin{equation}
+	f(0) = \underset{s \rightarrow \infty}{lim} F(s) \cdot s
+\end{equation}
+
+\subsection{Final Value Theorem}
+
+Similar to the initial value theorem, the final value theorem can evaluate the limit of the function at $t \rightarrow \infty$. 
+
+\begin{equation}
+	\underset{t \rightarrow \infty}{lim} f(t) = \underset{s \rightarrow 0}{F(s) \cdot s}
+\end{equation}
+
+\subsection{Frequency Domain Derivative}
+This theorem is sometimes also called the muliplication theorem. Here $n \in \mathbb{N}$ not only denotes an natural exponent but also the number of derivatives. 
+
+\begin{equation}
+	\mathcal{L} \left( t^n \cdot f(t) \right) = (-1)^n \cdot \frac{d^{(n)}}{ds^{(n)}} F(s)
+\end{equation}
+
+
+\subsection{Frequency Domain Integral}
+
+Similary, this theorem is sometimes also called the division theorem. To prevent a confusion between the integration variable s and the Laplace-s, the integration variable is denoted as $\tilde{s}$.
+
+\begin{equation}
+\mathcal{L} \left(\frac{f(t)}{t}\right) = \int_{\tilde{s} = s}^{\infty} F(\tilde{s}) d\tilde{s}
+\end{equation}
 
 
 \end{document}
