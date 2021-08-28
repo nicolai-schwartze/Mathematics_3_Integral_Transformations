@@ -3,6 +3,38 @@
 
 \chapter{Z-Transformation}
 
+The Z-transformation, also called the discrete Laplace-transformation, is used for discrete sequences. The Z-transformation can be applied to solve difference equations. 
+
+\begin{equation}
+	\mathcal{Z} \left( f\left[ n \right] \right) = F(z)
+\end{equation}
+
+\section{Z-Transformation Sum}
+
+The Z-transformation is calculated by evaluating the following sum:
+
+\begin{equation}
+	Z(f[n]) = \sum_{n=0}^{\infty} f[n] z^{-n}
+\end{equation}
+
+\textbf{Insertion: } Geometric Series
+
+The geometric series is especially helpfule to solve many Z-transformations. It is defined as 
+
+\begin{equation}
+	\sum_{i=0}^{\infty} x^i = \frac{1}{1-x}
+\end{equation}
+
+However, this is only applicable if $|x| < 1$ holds. This is assumed for all further statements. 
+
+\section{Inverse Z-Transformation}
+
+The inverse Z-transformation can often be solved by a partial fraction decomposition, just like the inverse Laplace-transformation. Every partial fraction is separately transformed. 
+
+\begin{equation}
+	\mathcal{Z}^{-1}\left( F(z) \right) = f[n]
+\end{equation}
+
 
 \section{Collection of Common Z-Transformation}
 
@@ -35,5 +67,94 @@
 	}
 \end{table}
 
+\section{Properties}
+
+Similary to the Laplace transformation, the Z-transformation also has some important properties that can be exploited to solve most of the upcoming problems. 
+
+\subsection{Linearity}
+The Z-transformation is a linear transformation which means that the linearity condition holds. Summations can be split and multiplicative constants can be pulled infront of the sum. 
+
+\begin{equation}
+	\mathcal{Z} \left( a \cdot f[n]  \pm b \cdot g[n] \right) = a F(f[n]) \pm b F(f[n])
+\end{equation}
+
+\subsection{Multiplication Theorem}
+
+If a sequence is multiplied with n in the time domain, the Z-transformation must be differentiated and multiplied with $-z$. 
+
+\begin{equation}
+	\mathcal{Z} (n \cdot f[n]) = -z \cdot \frac{dF}{dz}
+\end{equation}
+
+\subsection{Time Shift Right}
+
+Similarly as in continuous function, the time shift in positive time direction can be acomplished by subtraction
+
+\begin{equation}
+	f[n] \rightarrow f[n-1]
+\end{equation}
+
+The transformation of such a function can be done by:
+
+\begin{equation}
+	\begin{split}
+		\mathcal{Z} (f[n-1]) = & f[-1] + \frac{1}{z} \cdot \mathcal{Z}(f[n]) \\
+		\mathcal{Z} (f[n-2]) = & f[-2] + \frac{f[-1]}{z} + \frac{1}{z^2} \mathcal{Z}(f[n]) \\
+		\mathcal{Z} f([n-3]) = & f[-3] + \frac{f[-2]}{z} + \frac{f[-2]}{z^2} + \frac{1}{z^3} \mathcal{Z}(f[n])
+	\end{split}
+\end{equation}
+
+or for any shift in positive time direction by $a$ time steps: 
+
+\begin{equation}
+	\mathcal{Z}(f[n-a]) \left( \sum_{i=0}^{i=(a-1)} \frac{f[-a + i]}{z^i} \right) + \frac{\mathcal{Z}(f[n])}{z^a}
+\end{equation}
+
+When considering the inverse Z-transformation, a multiplication with $\frac{1}{z}$ in the z-domain, must be shifted via a Heaviside function in the discrete time domain. An example could be: 
+
+\begin{equation}
+	\mathcal{Z}^{-1} \left( \frac{z}{z-4} \cdot \frac{1}{z} \right) = 4^n \cdot u[n-1]
+\end{equation}
+
+\subsection{Time Shift Left}
+
+Contrary to the time shift in positive direction, a shift into the negative time direction is done by an addition: 
+
+\begin{equation}
+	f[n] \rightarrow f[n + 1]
+\end{equation}
+
+The transformation can be expressed as
+
+\begin{equation}
+	\begin{split}
+		\mathcal{Z}(f[n+1]) = & z \cdot (\mathcal{Z}(f[n]) - f[0]) \\
+		\mathcal{Z}(f[n+2]) = & z^2 \cdot \left( \mathcal{Z}(f[n]) - f[0] - \frac{f[1]}{z} \right) \\
+		\mathcal{Z}(f[n+3]) = & z^3 \cdot \left( \mathcal{Z}(f[n]) - f[0] - \frac{f[1]}{z} - \frac{f[2]}{z^2}\right)
+	\end{split}
+\end{equation}
+
+or a shift by any arbitrary constant $a$
+
+\begin{equation}
+	\mathcal{Z}(f[n+a]) = z^a \cdot \left( \mathcal{Z}(f[n]) - \sum_{j=0}^{a-1} \frac{f[j]}{z^j}\right)
+\end{equation}
+
+\subsection{Convolution}
+
+A convolution in the discrete time domain is defined as 
+
+\begin{equation}
+	f[n] * g[n] = \sum_{k=0}^{n} f[k] \cdot g[n-k]
+\end{equation}
+
+The Z-transformation for the convolution of two signals can be calculated by
+
+\begin{equation}
+	\begin{split}
+		\mathcal{Z}(f[n] * g[n]) = & \mathcal{Z}(f[n]) \cdot \mathcal{Z}(g[n]) \\
+		\mathcal{Z}^{-1}(F(z) \cdot G(z)) = & f[n] * g[n]
+	\end{split}
+\end{equation}
 
 \end{document}
